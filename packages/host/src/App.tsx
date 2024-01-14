@@ -8,21 +8,16 @@ function App() {
 
   return (
     <>
-      <div>
-          <Header />
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+      <Header />
+      <h1>Module Federation with Vite + React</h1>
+      <div className="card" style={{placeItems:'center'}}>
+        <button style={{width:'150px',height:'50px'}} onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
         <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+          On this page, Header Component is a rendered from remote <a href='http://localhost:4201' target='_blank'>http://localhost:4201</a> .
         </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      </div> 
     </>
   )
 }

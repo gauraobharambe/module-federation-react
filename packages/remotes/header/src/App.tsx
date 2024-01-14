@@ -1,21 +1,51 @@
-import reactLogo from '../public/react.svg'
-import viteLogo from '../public/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import {
+  MDBNavbar,
+  MDBNavbarNav,
+  MDBNavbarItem,
+  MDBNavbarLink,
+  MDBNavbarToggler,
+  MDBContainer,
+  MDBIcon,
+  MDBCollapse
+} from 'mdb-react-ui-kit';
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import './App.css';
 
-function App() {  
-
+export default function App() {
+  const [showBasic, setShowBasic] = useState(true);
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>      
-    </>
-  )
+    <header>
+      <MDBNavbar expand='lg' light bgColor='white'>
+        <MDBContainer fluid>
+          <MDBNavbarToggler
+            onClick={() => setShowBasic(!showBasic)}
+            aria-controls='navbarExample01'
+            aria-expanded='true'
+            aria-label='Toggle navigation'
+          >
+            <MDBIcon fas icon='bars' />
+          </MDBNavbarToggler>
+          <MDBCollapse className='w-100' open={showBasic}>
+            <MDBNavbarNav right className='navbar-nav mb-2 mb-lg-0 flex'>
+              <MDBNavbarItem active>
+                <MDBNavbarLink aria-current='page' href='#'>
+                  Home
+                </MDBNavbarLink>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+                <MDBNavbarLink href='#'>Features</MDBNavbarLink>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+                <MDBNavbarLink href='#'>Pricing</MDBNavbarLink>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+                <MDBNavbarLink href='#'>About</MDBNavbarLink>
+              </MDBNavbarItem>
+            </MDBNavbarNav>
+          </MDBCollapse>
+        </MDBContainer>
+      </MDBNavbar>
+    </header>
+  );
 }
-
-export default App
