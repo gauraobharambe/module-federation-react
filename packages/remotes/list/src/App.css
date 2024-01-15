@@ -71,6 +71,6 @@
   width: -webkit-fill-available;
 }
 
-.list-item>:nth-child(1) {
+.list>:nth-child(1) {
   font-weight: 600;
 }
