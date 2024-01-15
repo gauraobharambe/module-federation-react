@@ -1,5 +1,7 @@
 # module-federation-react
-Implementation of Module Federation using React and Vite
+Implementation of Module Federation using React and Vite. This repository contains a workspace of three projects, Host, Header and List.
+Host is the Main(client) application which renders components from Remote Apps (Header and List).
+This repository demonstrates how to create monorepo using `yarn` and develop and integrate micro-frontends in main(client) application.
 
 # Prerequisits
 ## Install NodeJS
