@@ -16,18 +16,21 @@ yarn install
 ```
 
 # How to run this repository
-## Build host and remote projects
+## Build `host` project 
 ```
-yarn build
+yarn host:dev
 ```
-
-## Run `host` project
+or
+```
+yarn host:build
+```
+and then
 ```
 yarn host:preview
 ```
 
-## Run run remote project `Header`
-```
-yarn header:preview
-```
 
+## Build and Run all remote projects(header, list)
+```
+yarn remotes:run
+```
