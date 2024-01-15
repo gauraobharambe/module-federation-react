@@ -15,14 +15,25 @@
     "host:dev": "yarn workspace host dev",
     "host:build": "yarn workspace host build",
     "host:preview": "yarn workspace host preview",
-    
+
     "header:dev": "yarn workspace header dev",
     "header:build": "yarn workspace header build",
     "header:preview": "yarn workspace header preview",
 
-    "build": "yarn workspace header build && yarn workspace host build"    
+    "list:dev": "yarn workspace list dev",
+    "list:build": "yarn workspace list build",
+    "list:preview": "yarn workspace list preview",
+
+    "remotes:build":"concurrently \"yarn workspace header build\" \"yarn workspace list build\"",
+    "remotes:preview":"concurrently \"yarn workspace header preview\" \"yarn workspace list preview\"",
+    "remotes:run": "yarn remotes:build && yarn remotes:preview",
+
+    "build": "concurrently \"yarn workspace header build\" \"yarn workspace list build\" \"yarn workspace host build\"",
+    "preview": "concurrently \"yarn workspace header preview\" \"yarn workspace list preview\" \"yarn workspace host preview\"",
+    "run": "yarn run build && yarn run preview"
   },
   "devDependencies": {
-    "@originjs/vite-plugin-federation": "^1.3.3"
+    "@originjs/vite-plugin-federation": "^1.3.3",
+    "concurrently": "^8.2.2"
   }
 }

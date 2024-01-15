@@ -41,6 +41,36 @@
   color: #888;
 }
 
-.user-list{
+.list{
+  display: flex;
+  flex-direction: column;
+  list-style: none;
   width: 100%;
+}
+.list-item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  border: solid 1px #cdc5c5db;
+  border-radius: 2px;
+}
+.separator {
+  width: 0px;
+  border-left: solid 1px grey;
+  height: inherit;
+  min-height: inherit;
+}
+
+.list-item>span:nth-child(1) {
+  width: 25%;
+}
+
+.list-item>span:not(:nth-child(1)) {
+  width: -webkit-fill-available;
+}
+
+.list-item>:nth-child(1) {
+  font-weight: 600;
 }

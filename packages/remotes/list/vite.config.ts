@@ -4,29 +4,30 @@ import federation from '@originjs/vite-plugin-federation';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base:'./',
   server: {
-    port: 4200,
+    port: 4202,
   },
   preview: {
-    port: 4200,
+    port: 4202,
   },
   plugins: [
     react(),
-    federation({
-      name: 'host',
-      remotes: {
-        remoteHeader: "http://localhost:4201/assets/remoteEntry.js",
-        remoteList: "http://localhost:4202/assets/remoteEntry.js",
+    federation({      
+      name: 'remoteHeader',
+      filename: 'remoteEntry.js',
+      exposes: {
+          './List': './src/App',
       },
-      shared: ['react','react-dom']
+      shared: ['react', 'react-dom']
     })
   ],
   build: {
-    outDir:'../../dist/host',
+    outDir:'../../../dist/remotes/list',
     emptyOutDir:true,
     modulePreload: false,
     target: 'esnext',
     minify: false,
-    cssCodeSplit: false
-  }
+    cssCodeSplit: false,    
+  }  
 })
