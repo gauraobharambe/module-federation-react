@@ -30,7 +30,7 @@ yarn host:preview
 ```
 
 
-## Build and Run all remote projects(header, list)
+## Build and Run all remote projects (header, list)
 ```
 yarn remotes:run
 ```
